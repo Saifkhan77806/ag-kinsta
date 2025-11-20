@@ -1,0 +1,11 @@
+.overlaygrad {
+  background: hsla(26, 100%, 49%, 1);
+
+  background: radial-gradient(circle, hsla(26, 100%, 49%, 1) 48%, transparent 100%);
+
+  background: -moz-radial-gradient(circle, hsla(26, 100%, 49%, 1) 48%, transparent 100%);
+
+  background: -webkit-radial-gradient(circle, hsla(26, 100%, 49%, 1) 48%, transparent 100%);
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FB6D00", endColorstr="transparent", GradientType=1 );
+}
