@@ -2,10 +2,11 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ZardButtonComponent } from '@shared/components/button/button.component';
 import { buttonVariants } from '@shared/components/button/button.variants';
+import { Header } from './header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ZardButtonComponent],
+  imports: [Header],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

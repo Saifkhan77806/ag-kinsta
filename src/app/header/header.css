@@ -1,0 +1,10 @@
+
+
+.subnav {
+  max-height: auto;
+  opacity: 0;
+}
+
+.subnav[style*='max-height:'] {
+  opacity: 1;
+}

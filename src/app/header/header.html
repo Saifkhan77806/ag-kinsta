@@ -1,1 +1,75 @@
-<p>header works!</p>
+<nav
+  class="nav-container transition-all h-auto w-[80%] fixed top-3 left-1/2 -translate-x-1/2 p-4 bg-black text-white z-50 rounded-xl"
+>
+  <div class="flex justify-between">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <img src="/mnt/data/4976a4a5-cc10-45fc-a0d7-29567c1f14d2.png" alt="logo" class="h-8" />
+    </div>
+
+    <!-- Menu items -->
+    <div class="flex gap-x-12 items-center">
+      @for (item of routes; track $index) {
+      <div class="flex items-center justify-center">
+        <a
+          href="#"
+          class="h-fit flex justify-center items-center"
+          (mouseenter)="subHover(item.children)"
+          (mouseleave)="isOpen = false"
+          >{{ item.text }}</a
+        >
+        @if (item.children) {
+        <mat-icon class="transition-transform"
+          >arrow_drop_down</mat-icon
+        >
+
+        }
+      </div>
+      }
+    </div>
+
+    <!-- Right side -->
+    <div class="flex items-center gap-4">
+      <a href="/login" class="hover:text-gray-300 transition">Login</a>
+      <z-button class="bg-white text-black mx-3">Try for free</z-button>
+    </div>
+  </div>
+
+  <!-- sub navbar container -->
+
+  <div
+    #subNavPanel
+    class="subnav flex overflow-hidden transition-all duration-300 divide-x divide-gray-200"
+    [style.maxHeight.px]="isOpen ? panelHeight : 0"
+    (mouseenter)="keepOpen()"
+    (mouseleave)="closeNav()"
+  >
+    @for (item of subNav; track $index) {
+
+    <div class="flex-1 px-6">
+      <h2 class="text-xl my-5">{{ item.title }}</h2>
+
+      @if (item.isCard) {
+      <div
+        class="flex flex-col h-72 mb-5 hover:-translate-y-1 transition cursor-pointer overflow-hidden rounded-2xl border border-gray-200 text-gray-200 bg-gray-500"
+      >
+        <div class="flex-1 relative">
+          <img [src]="item.image" class="size-full" [alt]="item.text" />
+        </div>
+        <div class="py-5 px-3">
+          {{ item.text }}
+        </div>
+      </div>
+      <a class="text-sm text-orange-400 my-4 hover:text-orange-500">{{ item.more }}</a>
+      } @else {
+      <div class="space-y-3 flex flex-col">
+        @for (items of item.routes; track $index) {
+        <a class="text-gray-400 hover:text-white">{{ items.text }}</a>
+        }
+      </div>
+      }
+    </div>
+
+    }
+  </div>
+</nav>
