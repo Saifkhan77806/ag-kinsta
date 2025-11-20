@@ -1,0 +1,29 @@
+.blackfilter {
+  filter: saturate(0) brightness(1) invert(20.9804%) opacity(1);
+  flex: 0 0 5rem;
+  transition: 0.2s;
+}
+.blackfilter:hover {
+  filter: none;
+}
+
+.animate {
+  animation: spin 8s infinite linear;
+}
+
+.group:hover .animate {
+  animation-play-state: paused;
+}
+
+.group::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes spin {
+  from {
+    translate: 0;
+  }
+  to {
+    translate: -100%;
+  }
+}
